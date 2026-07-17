@@ -1,0 +1,55 @@
+services:
+
+  supervisor:
+    build: ./supervisor
+    container_name: syneduc_supervisor
+    ports:
+      - "8080:8000"
+    volumes:
+      - ./supervisor:/app
+    depends_on:
+      - bfa
+
+  bfa:
+    build: ./bfa
+    container_name: syneduc_bfa
+    ports:
+      - "8083:8000"
+    volumes:
+      - ./bfa:/app
+    depends_on:
+      - recursos
+      - info_produto_agent
+      - contrato_agent
+
+  info_produto_agent:
+    build: ./agents/info_produto
+    container_name: info_produto_agent
+    ports:
+      - "8081:8000"
+    volumes:
+      - ./agents/info_produto:/app
+
+  contrato_agent:
+    build: ./agents/contrato
+    container_name: contrato_agent
+    ports:
+      - "8082:8000"
+    volumes:
+      - ./agents/contrato:/app
+
+  recursos:
+    build: ./recursos
+    container_name: syneduc_recursos
+    ports:
+      - "8084:8000"
+    volumes:
+      - ./recursos:/app
+
+  frontend:
+    build: ./frontend
+    container_name: syneduc_frontend
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./frontend:/app

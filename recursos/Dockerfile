@@ -1,0 +1,20 @@
+FROM python:3.13-slim
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libffi-dev \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+ENV FASTMCP_HTTP_HOST_ORIGIN_PROTECTION=false
+
+CMD ["fastmcp", "run", "app.py:mcp", "--transport", "http", "--host", "0.0.0.0", "--port", "8000", "--path", "/mcp_gateway"]

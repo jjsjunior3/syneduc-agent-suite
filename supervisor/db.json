@@ -1,0 +1,21 @@
+{
+  "planos": {
+    "essencial": {
+      "nome": "SynerEduc Essencial",
+      "preco_aluno": 8.90,
+      "recursos": ["gestão de notas", "frequência", "boletim em PDF", "agenda do professor"]
+    },
+    "completo": {
+      "nome": "SynerEduc Completo",
+      "preco_aluno": 14.90,
+      "recursos": ["tudo do Essencial", "IA pedagógica (Sofia)", "IA administrativa (Gabriela)", "relatórios avançados"]
+    },
+    "multi_escola": {
+      "nome": "SynerEduc Multi-Escola",
+      "preco_aluno": 12.90,
+      "recursos": ["tudo do Completo", "painel multi-unidade", "suporte prioritário"]
+    }
+  },
+  "leads": {},
+  "propostas": {}
+}

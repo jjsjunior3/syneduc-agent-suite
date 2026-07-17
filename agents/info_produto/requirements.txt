@@ -1,0 +1,10 @@
+a2a-sdk[http-server]==0.3.26
+httpx
+pydantic
+uvicorn
+langchain
+langchain_openai
+langchain-community
+langchain-mcp-adapters
+langgraph
+python-dotenv
