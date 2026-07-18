@@ -1,0 +1,117 @@
+{
+  "planos": {
+    "essencial": {
+      "nome": "SynerEduc Essencial",
+      "preco_aluno": 8.9,
+      "recursos": [
+        "gestão de notas",
+        "frequência",
+        "boletim em PDF",
+        "agenda do professor"
+      ]
+    },
+    "completo": {
+      "nome": "SynerEduc Completo",
+      "preco_aluno": 14.9,
+      "recursos": [
+        "tudo do Essencial",
+        "IA pedagógica (Sofia)",
+        "IA administrativa (Gabriela)",
+        "relatórios avançados"
+      ]
+    },
+    "multi_escola": {
+      "nome": "SynerEduc Multi-Escola",
+      "preco_aluno": 12.9,
+      "recursos": [
+        "tudo do Completo",
+        "painel multi-unidade",
+        "suporte prioritário"
+      ]
+    }
+  },
+  "leads": {
+    "76185": {
+      "nome_escola": "Colégio Teste",
+      "contato": "Jose Joao",
+      "email": "teste@mail.com",
+      "telefone": "11 2345 6789",
+      "numero_alunos": 250,
+      "status": "qualificado",
+      "dor_principal": "Problemas com agenda, boletim e otimização de processos da secretaria",
+      "segmento": "Educação Infantil e Ensino Fundamental"
+    },
+    "71982": {
+      "nome_escola": "Colegio Texte",
+      "contato": "José João",
+      "email": "teste@mail.com",
+      "telefone": "Não informado",
+      "numero_alunos": 150,
+      "status": "qualificado",
+      "dor_principal": "Ferramentas de agenda, boletim e controle pedagógico com relatórios",
+      "segmento": "Educação Infantil e Ensino Fundamental"
+    },
+    "11103": {
+      "nome_escola": "Escola Teste",
+      "contato": "José João",
+      "email": "teste@mail.com",
+      "telefone": "11 2345 6789",
+      "numero_alunos": 150,
+      "status": "registrado"
+    },
+    "41681": {
+      "nome_escola": "Escola Texte",
+      "contato": "Jose Joao",
+      "email": "teste@mail.com",
+      "telefone": "Não informado",
+      "numero_alunos": 150,
+      "status": "qualificado",
+      "dor_principal": "Gestão pedagógica (alunos, professores, coordenadores)",
+      "segmento": "Educação Básica"
+    },
+    "30587": {
+      "nome_escola": "Escola Teste",
+      "contato": "José João",
+      "email": "teste@mail.com",
+      "telefone": "sem telefone",
+      "numero_alunos": 150,
+      "status": "proposta_gerada",
+      "dor_principal": "pedagogico",
+      "segmento": "infantil e fundamental"
+    },
+    "97448": {
+      "nome_escola": "Escola Teste",
+      "contato": "Jose joao",
+      "email": "teste@mail.com",
+      "telefone": "98 988225588",
+      "numero_alunos": 200,
+      "status": "registrado"
+    },
+    "10864": {
+      "nome_escola": "Escola Teste",
+      "contato": "José João",
+      "email": "teste@mail.com",
+      "telefone": "11 2233 4455",
+      "numero_alunos": 200,
+      "status": "proposta_gerada",
+      "dor_principal": "Sistema para gestão pedagógica (agenda, boletim)",
+      "segmento": "Educação Infantil e Ensino Fundamental"
+    }
+  },
+  "propostas": {
+    "181980": {
+      "lead_id": "30587",
+      "plano": "SynerEduc Essencial",
+      "numero_alunos": 150,
+      "valor_mensal_estimado": 1335.0,
+      "observacao": "Simulação comercial — não é um contrato formal."
+    },
+    "731218": {
+      "lead_id": "10864",
+      "plano": "SynerEduc Essencial",
+      "numero_alunos": 200,
+      "valor_mensal_estimado": 1780.0,
+      "observacao": "Simulação comercial — não é um contrato formal."
+    }
+  }
+}

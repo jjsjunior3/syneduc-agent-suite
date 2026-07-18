@@ -70,22 +70,27 @@ async def executar_supervisor(texto_usuario: str, session_id: str = "default") -
 
         if tipo == "agent":
             agent_url = best["data"]["agent_url"]
-            logger.info(f"BFA resolveu '{texto_usuario}' -> agente {best['skill']} (score={best['normalized_score']:.2f})")
-
         elif tipo == "tool":
-            # Uma tool não tem "URL de agente" própria — delega para o
-            # último agente da sessão, ou para o agente padrão.
             agent_url = SESSION_LAST_AGENT_URL.get(session_id, DEFAULT_AGENT_URL)
-            logger.info(f"BFA resolveu '{texto_usuario}' -> tool {best['skill']}, delegando para {agent_url}")
 
     if not agent_url:
-        # BFA fora do ar, ou sem confiança suficiente: mantém a
-        # conversa no último agente da sessão; se não houver histórico,
-        # cai no agente de entrada padrão.
         agent_url = SESSION_LAST_AGENT_URL.get(session_id, DEFAULT_AGENT_URL)
-        logger.info(f"Sem resolução confiante, mantendo sessão em {agent_url}")
-
-    SESSION_LAST_AGENT_URL[session_id] = agent_url
 
     resposta = await request_agent(texto_usuario, agent_url)
+
+    if "[HANDOFF:contrato]" in resposta:
+        resposta = resposta.replace("[HANDOFF:contrato]", "").strip()
+        novo_agent_url = "http://contrato_agent:8000"
+        SESSION_LAST_AGENT_URL[session_id] = novo_agent_url
+
+        # Transição na mesma mensagem: já chama o agente de contrato
+        # com a mensagem original do usuário, para não deixar um turno
+        # "vazio" esperando a próxima interação.
+        resposta_contrato = await request_agent(texto_usuario, novo_agent_url)
+
+        if resposta:
+            return f"{resposta}\n\n---\n\n{resposta_contrato}"
+        return resposta_contrato
+
+    SESSION_LAST_AGENT_URL[session_id] = agent_url
     return resposta

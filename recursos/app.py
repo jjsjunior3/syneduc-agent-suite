@@ -161,6 +161,15 @@ async def gerar_proposta(lead_id: str, plano_id: str, ctx: Context):
     save_db()
     return {"status": "gerada", "proposta_id": proposta_id, "proposta": proposta}
 
+@mcp.tool(
+    name="listar_planos_disponiveis",
+    description="Lista todos os planos reais disponíveis no SynerEduc, com id, nome, preço por aluno e recursos incluídos.",
+    tags={"planos", "consulta", "vendas"},
+    meta={"examples": ["quais planos vocês têm?", "quero saber os planos disponíveis"]},
+)
+async def listar_planos_disponiveis(ctx: Context):
+    return {"planos": planos}
+    
 
 # ===================== Rota REST para o BFA descobrir tools =====================
 

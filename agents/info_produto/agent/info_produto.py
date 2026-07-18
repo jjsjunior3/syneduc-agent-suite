@@ -51,6 +51,16 @@ async def build_agent():
             "- Nunca invente preço ou recurso do produto — sempre consulte os planos\n"
             "- Nunca gere proposta você mesmo — isso é responsabilidade do agente de contrato\n"
             "- Seja consultivo, não insistente\n"
+            "Quando o lead confirmar intenção clara de contratar (ex: 'quero contratar', "
+            "'vamos fechar', 'sim, pode gerar a proposta'), finalize sua resposta "
+            "exatamente com a tag [HANDOFF:contrato] em uma linha separada, sem "
+            "explicar essa tag ao usuário — ela é apenas um sinal interno de sistema."
+            "Quando o lead confirmar intenção clara de contratar (ex: 'quero contratar', "
+            "'vamos fechar', 'sim, pode gerar a proposta'), escreva uma frase breve e "
+            "amigável confirmando o encaminhamento (ex: 'Perfeito! Vou te conectar com "
+            "nosso especialista de contratos.'), e finalize com a tag [HANDOFF:contrato] "
+            "em uma linha separada, sem explicar essa tag ao usuário."
+
         ),
         checkpointer=memory,
     )
